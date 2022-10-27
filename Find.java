@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.Scanner;
-
 public class find {
 public static void main(String[] args) throws IOException {
 	Scanner sc = new Scanner(System.in);
@@ -18,10 +17,7 @@ public static void main(String[] args) throws IOException {
     while ((str = in.readLine()) != null) {
         fi = fi + str;
     }
-    //System.out.println(fi);
     //get the target file
-    
-    
     if(lever >= 1) {
     	lv1(fi);
     }//lever 1
@@ -35,39 +31,25 @@ public static void main(String[] args) throws IOException {
     if(lever == 4) {
     	lv3_4(fi);
     }
-
 }
 static void lv1(String fi) {
-	int Sw = 0;
-    for(int i = 0; i < fi.length(); i++) {
-    	int a = fi.indexOf("switch",i);
-    	if(a == i) {
-    		Sw++;
-    		i = a;
-    	}
-    }
-    int Ca = 0;
+	int keyword = 0;
     for(int i = 0; i < fi.length(); i++) {
     	int a = fi.indexOf("case",i);
-    	if(a == i) {
-    		Ca++;
+    	int b = fi.indexOf("if",i);
+    	int c = fi.indexOf("else",i);
+    	int d = fi.indexOf("default",i);
+    	int e = fi.indexOf("break",i);
+    	int f = fi.indexOf("switch",i);
+    	int g = fi.indexOf("return",i);
+    	int h = fi.indexOf("int",i);
+    	int j = fi.indexOf("long",i);
+    	int k = fi.indexOf("double",i);
+    	if(i == a||i == b||i == c||i == d||i == e||i == f||i == g||i == h||i == j||i == k) {
+    		keyword++;
     	}
     }
-    int if0 = 0;//all_if
-    for(int i = 0; i < fi.length(); i++) {
-    	int a = fi.indexOf("if",i);
-    	if(a == i) {
-    		if0++;
-    	}
-    }
-    int El = 0;//all_else
-    for(int i = 0; i < fi.length(); i++) {
-    	int a = fi.indexOf("else",i);
-    	if(a == i) {
-    	El++;
-    	}
-    }
-    System.out.println("total num: "+(Sw+Ca+if0+El));
+    System.out.println("total num: "+keyword);
 }
 static void lv2(String fi) {
 	int Sw = 0;
@@ -76,7 +58,6 @@ static void lv2(String fi) {
     	if(a == i) {
     		Sw++;
     		i = a;
-    	    
     	}
     }
     System.out.println("switch num: "+Sw);
