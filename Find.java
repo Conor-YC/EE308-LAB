@@ -20,17 +20,16 @@ public static void main(String[] args) throws IOException {
     //get the target file
     if(lever >= 1) {
     	lv1(fi);
-    }//lever 1
-    
+    }//lever 1. Basic requirement
     if(lever >= 2) {
     	lv2(fi);
-    }
+    }//lever 2. Advanced requirement
     if(lever == 3) {
     	lv3(fi);
-    }
+    }//lever 3. Uplifting requirement
     if(lever == 4) {
     	lv3_4(fi);
-    }
+    }//lever 4. Ultimate requirement
 }
 static void lv1(String fi) {
 	int keyword = 0;
@@ -44,7 +43,7 @@ static void lv1(String fi) {
     	int g = fi.indexOf("return",i);
     	int h = fi.indexOf("int",i);
     	int j = fi.indexOf("long",i);
-    	int k = fi.indexOf("double",i);
+    	int k = fi.indexOf("double",i);//all the keyword in target
     	if(i == a||i == b||i == c||i == d||i == e||i == f||i == g||i == h||i == j||i == k) {
     		keyword++;
     	}
