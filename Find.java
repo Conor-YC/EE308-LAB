@@ -1,7 +1,7 @@
 import java.io.*;
 public class find {
 public static void main(String[] args) throws IOException {
-	File target = new File("https://raw.githubusercontent.com/Conor-YC/EE308-LAB/main/target.c");
+	File target = new File("https://raw.githubusercontent.com/Conor-YC/EE308-LAB/main/target.c");//The file in my PC is"D:/target.c"
 	BufferedReader in = new BufferedReader(new FileReader(target));
 	String str;
 	String fi = "";
