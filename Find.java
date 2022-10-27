@@ -24,11 +24,11 @@ public static void main(String[] args) throws IOException {
     if(lever >= 2) {
     	lv2(fi);
     }//lever 2. Advanced requirement
-    if(lever == 3) {
+    if(lever >= 3) {
     	lv3(fi);
     }//lever 3. Uplifting requirement
     if(lever == 4) {
-    	lv3_4(fi);
+    	lv4(fi);
     }//lever 4. Ultimate requirement
 }
 static void lv1(String fi) {
@@ -43,7 +43,7 @@ static void lv1(String fi) {
     	int g = fi.indexOf("return",i);
     	int h = fi.indexOf("int",i);
     	int j = fi.indexOf("long",i);
-    	int k = fi.indexOf("double",i);//all the keyword in target
+    	int k = fi.indexOf("double",i);
     	if(i == a||i == b||i == c||i == d||i == e||i == f||i == g||i == h||i == j||i == k) {
     		keyword++;
     	}
@@ -81,7 +81,7 @@ static void lv2(String fi) {
     System.out.println();
 }
 static void lv3(String fi) {
-    int eif = 0;//else_if
+	int eif = 0;//pure_if
     for(int i = 0; i < fi.length(); i++) {
     	int b = fi.indexOf("else if",i);
     	if(b == i) {
@@ -95,24 +95,18 @@ static void lv3(String fi) {
     	El++;
     	}
     }
-    System.out.println("if-else num: "+(El - eif));//all_else - else_if = pure_else = if_else
+    int i_ei_e = 0;
+    for(int i = 0; i < fi.length(); i++) {
+    	int b = fi.indexOf("else if",i);
+    	int c = fi.indexOf("if",i);
+    	if((b != c-5)&& b > 0) {
+    		i_ei_e++;
+    		i = b + 5;
+    	}
+    }
+    System.out.println("if-else num: "+(El - eif - i_ei_e));//all_else - else_if = pure_else = if_else
 }
-static void lv3_4(String fi) {
-    int eif = 0;//pure_if
-    for(int i = 0; i < fi.length(); i++) {
-    	int b = fi.indexOf("else if",i);
-    	if(b == i) {
-    		eif++;
-    	}
-    }
-    int El = 0;//all_else
-    for(int i = 0; i < fi.length(); i++) {
-    	int a = fi.indexOf("else",i);
-    	if(a == i) {
-    	El++;
-    	}
-    }
-    System.out.println("if-else num: "+(El - eif));//all_else - else_if = pure_else = if_else
+static void lv4(String fi) {
     int i_ei_e = 0;
     for(int i = 0; i < fi.length(); i++) {
     	int b = fi.indexOf("else if",i);
